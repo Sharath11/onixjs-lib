@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onixcoin-io/onixjs-lib.git"
+    "url": "git+https://github.com/Sharath11/onixjs-lib.git"
   },
   "keywords": [
     "onix",
@@ -16,14 +16,14 @@
   "author": "Onix",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/onixcoin-io/onixjs-lib/issues"
+    "url": "https://github.com/Sharath11/onixjs-lib/issues"
   },
-  "homepage": "https://github.com/onixcoin-io/onixjs-lib#readme",
+  "homepage": "https://github.com/Sharath11/onixjs-lib#readme",
   "devDependencies": {},
   "dependencies": {
     "bignumber.js": "^4.1.0",
     "bitcoinjs-lib": "^3.3.2",
-    "onix-opcodes": "https://github.com/onixcoin-io/onix-opcodes-js.git#master",
+    "onix-opcodes": "https://github.com/Sharath11/onix-opcodes-js.git#master",
     "safe-buffer": "^5.1.1"
   }
 }
