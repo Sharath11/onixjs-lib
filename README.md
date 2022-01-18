@@ -1,42 +1,42 @@
-# qtumjs-lib
+# onixjs-lib
 This is an extend lib for bitcoinjs-lib.
 It extends the network type of bitcoinjs-lib.
-It also provides an useful lib to help you building QTUM transactions.
+It also provides an useful lib to help you building ONIX transactions.
 
 ## Installation
 ``` bash
-npm install qtumjs-lib
+npm install onixjs-lib
 ```
 
 ## Setup
 ### Node.js
 ``` javascript
-var qtumjs = require('qtumjs-lib')
+var onixjs = require('onixjs-lib')
 ```
 
 ## New features
 ### Network
 ```
 {
-    qtum: {
-        messagePrefix: '\x18Qtum Signed Message:\n',
+    onix: {
+        messagePrefix: '\x15Onix Signed Message:\n',
         bech32: 'qc',
         bip32: {
             public: 0x0488b21e,
             private: 0x0488ade4
         },
-        pubKeyHash: 0x3a,
-        scriptHash: 0x32,
+        pubKeyHash: 0x4b,
+        scriptHash: 0x89,
         wif: 0x80
     },
-    qtum_testnet: {
-        messagePrefix: '\x18Qtum Signed Message:\n',
+    onix_testnet: {
+        messagePrefix: '\x15Onix Signed Message:\n',
         bech32: 'tq',
         bip32: {
             public: 0x043587cf,
             private: 0x04358394
         },
-        pubKeyHash: 0x78,
+        pubKeyHash: 0x89,
         scriptHash: 0x6e,
         wif: 0xef
     }
@@ -48,12 +48,12 @@ var qtumjs = require('qtumjs-lib')
 #### Utils.selectTxs
 ```javascript
 /**
- * This is a function for selecting QTUM utxos to build transactions
- * the transaction object takes at least 3 fields, value(unit is 1e-8 QTUM) , confirmations and isStake
+ * This is a function for selecting ONIX utxos to build transactions
+ * the transaction object takes at least 3 fields, value(unit is 1e-8 ONIX) , confirmations and isStake
  *
  * @param [transaction] unspentTransactions
- * @param Number amount(unit: QTUM)
- * @param Number fee(unit: QTUM)
+ * @param Number amount(unit: ONIX)
+ * @param Number fee(unit: ONIX)
  * @returns [transaction]
  */
 function selectTxs(unspentTransactions, amount, fee)
@@ -62,12 +62,12 @@ function selectTxs(unspentTransactions, amount, fee)
 ```javascript
 /**
  * This is a helper function to build a pubkeyhash transaction
- * the transaction object takes at least 5 fields, value(unit is 1e-8 QTUM), confirmations, isStake, hash and pos
+ * the transaction object takes at least 5 fields, value(unit is 1e-8 ONIX), confirmations, isStake, hash and pos
  *
  * @param bitcoinjs-lib.KeyPair keyPair
  * @param String to
- * @param Number amount(unit: QTUM)
- * @param Number fee(unit: QTUM)
+ * @param Number amount(unit: ONIX)
+ * @param Number fee(unit: ONIX)
  * @param [transaction] utxoList
  * @returns String the built tx
  */
@@ -77,13 +77,13 @@ function buildPubKeyHashTransaction(keyPair, to, amount, fee, utxoList)
 ```javascript
 /**
  * This is a helper function to build a create-contract transaction
- * the transaction object takes at least 5 fields, value(unit is 1e-8 QTUM), confirmations, isStake, hash and pos
+ * the transaction object takes at least 5 fields, value(unit is 1e-8 ONIX), confirmations, isStake, hash and pos
  *
  * @param bitcoinjs-lib.KeyPair keyPair
  * @param String code The contract byte code
  * @param Number gasLimit
- * @param Number gasPrice(unit: 1e-8 QTUM/gas)
- * @param Number fee(unit: QTUM)
+ * @param Number gasPrice(unit: 1e-8 ONIX/gas)
+ * @param Number fee(unit: ONIX)
  * @param [transaction] utxoList
  * @returns String the built tx
  */
@@ -93,14 +93,14 @@ function buildCreateContractTransaction(keyPair, code, gasLimit, gasPrice, fee, 
 ```javascript
 /**
  * This is a helper function to build a send-to-contract transaction
- * the transaction object takes at least 5 fields, value(unit is 1e-8 QTUM), confirmations, isStake, hash and pos
+ * the transaction object takes at least 5 fields, value(unit is 1e-8 ONIX), confirmations, isStake, hash and pos
  *
  * @param bitcoinjs-lib.KeyPair keyPair
  * @param String contractAddress The contract address
  * @param String encodedData The encoded abi data
  * @param Number gasLimit
- * @param Number gasPrice(unit: 1e-8 QTUM/gas)
- * @param Number fee(unit: QTUM)
+ * @param Number gasPrice(unit: 1e-8 ONIX/gas)
+ * @param Number fee(unit: ONIX)
  * @param [transaction] utxoList
  * @returns String the built tx
  */
